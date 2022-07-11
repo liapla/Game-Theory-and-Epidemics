@@ -2,7 +2,7 @@
 
 This is a repository for the project "Game theory and epidemics" from Julia Plaumann, Sima Hashemi, Nuttakrit Onuthai, Marie Tersteegen
 
-**Link to the website with the SEIDV model: https://seidv-model.web.app/home **
+__Link to the website with the SEIDV model: https://seidv-model.web.app/home __
 
 What do the files do?
 

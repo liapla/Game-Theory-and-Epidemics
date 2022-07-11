@@ -1,0 +1,61 @@
+<div class="description">
+  <h2>The SEIDV Epidemic Model</h2>
+  <p>The SEIDV model is a compartmental epidemic model in
+    which compartments reflect infection status and the rate of
+    emergence of new cases is proportional to the product of the
+    densities of susceptible and infectious individuals. It tracks the time evolution of
+    the densities of individuals who are <b>susceptible (S)</b>, <b>infected but
+    not yet infectious (E)</b>, <b>infectious (I)</b>, <b>removed (dead/immune)
+    due to smallpox infection (D)</b>, and <b>removed (dead/immune) due
+    to vaccination (V)</b>.<p>
+  <hr>
+</div>
+<div class="website-content">
+  <div class="button-container">
+    <div class="slider-container">
+      <p>Probability of death from vaccine ( d<sub>v</sub> ) : <b class="bold"> {{ d_v }}</b><p>
+      <!-- <ngx-slider [(value)]="value" [(ngModel)]="d_v" [options]="options" (change)="updateChart()"></ngx-slider> -->
+      <mat-slider thumbLabel [displayWith]="formatLabel" aria-label="units" min="0.0000001" max="0.2" step="0.000001" [(ngModel)]="d_v" (change)="updateChart()" color="primary"></mat-slider>
+      <p>Probability of death from smallpox ( d<sub>s</sub> ) : <b class="bold"> {{ d_s }}</b><p></p>
+      <mat-slider thumbLabel [displayWith]="formatLabel" aria-label="units" min="0.001" max="1" step="0.001" [(ngModel)]="d_s" (change)="updateChart()" color="primary"></mat-slider>
+      <p *ngIf="selected == 'smallpox'">Attack risk ( &#114; ) : <b class="bold"> {{ r }}</b><p>
+      <mat-slider *ngIf="selected == 'smallpox'" thumbLabel [displayWith]="formatLabel" aria-label="units" min="0.001" max="0.05" step="0.001" [(ngModel)]="r" (change)="updateChart()" color="primary"></mat-slider> 
+      <p>Preemptively vaccinated population ( p ) : <b class="bold"> {{ p }}</b><p>
+      <mat-slider thumbLabel [displayWith]="formatLabel" aria-label="units" min="0" max="1" step="0.001" [(ngModel)]="p" (change)="updateChart()" color="primary"></mat-slider>
+      <p>Basic reproducive ratio ( R<sub>0</sub> ) : <b class="bold"> {{ r0.toFixed(2) }}</b><p>
+      <mat-slider thumbLabel [displayWith]="formatLabel" aria-label="units" min="0.5" max="10" step="0.05" [(ngModel)]="r0" (change)="updateChart()" color="primary"></mat-slider>
+      <p>Mean latent period ( &#963; ):  <b class="bold">{{ sigma }}</b><p>
+      <mat-slider thumbLabel [displayWith]="formatLabel" aria-label="units" min="3" max="20" step="0.1" [(ngModel)]="sigma" (change)="updateChart()" color="primary"></mat-slider>
+      <p>Mean infectious period ( &#x0263; ) : <b class="bold">{{ gamma }}</b><p>
+      <mat-slider thumbLabel [displayWith]="formatLabel" aria-label="units" min="1" max="8" step="0.1" [(ngModel)]="gamma" (change)="updateChart()" color="primary"></mat-slider>
+      <p>Vaccinator response time ( t<sub>res</sub>  ) : <b class="bold"> {{  t_res }}</b><p>
+      <mat-slider thumbLabel [displayWith]="formatLabel" aria-label="units" min="7" max="21" step="0.1" [(ngModel)]="t_res" (change)="updateChart()" color="primary"></mat-slider>
+      <p>Vaccination rate ( &#x028B; ) : <b class="bold"> {{ nu }}</b><p>
+      <mat-slider thumbLabel [displayWith]="formatLabel" aria-label="units" min="0.05" max="0.2" step="0.001" [(ngModel)]="nu" (change)="updateChart()" color="primary"></mat-slider>
+      <p>Attack size (	&#945; ) : <b class="bold"> {{ alpha.toExponential(2)}}</b><p>
+      <mat-slider thumbLabel [displayWith]="formatLabel" aria-label="units" min="0.00001" max="1" step="0.001" [(ngModel)]="alpha" (change)="updateChart()" color="primary"></mat-slider> 
+    </div>
+    <div class="center">
+      <button class="default-button"(click)="resetValues()"><b>Smallpox</b></button>
+      <button class="covid-button" (click)="covidValues()"><b>Covid-19</b></button>
+    </div>
+  </div>
+  <div class="chart-wrapper">
+    <div class="center">
+      <div class="card">
+        <p>Payoff vaccinator strategy ( E<sub>vac</sub> ) :  <b class="bold"> {{ e_vac.toFixed(7) }}</b></p>
+      </div>
+      <div class="card">
+        <p>Payoff delayer strategy ( E<sub>del</sub> ) :  <b class="bold"> {{ e_del.toFixed(7) }}</b></p>
+      </div>
+    </div>
+    <div class="chart-container">
+        <div>
+            <canvas style="height:400px;"#lineCanvas></canvas>
+        </div>
+        <div>
+          <canvas style="height:400px;" #lineCanvas2></canvas>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,283 @@
+.website-wrapper {
+    height: 100vh
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    background-color: #004b5a;
+    margin-bottom: 3rem;
+    max-width: 100%;
+}
+
+.header .logo {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 2rem;
+    width: 100%;
+}
+
+.header .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.header .space {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2rem;
+    width: 4.5rem;
+    width: 100%;
+}
+
+img {
+    float: left;
+    height: 5rem;
+}
+
+h1 {
+    color: white;
+    margin: 0rem;
+    padding: 0rem;
+    font-family: 'Montserrat';
+}
+
+.card {
+    padding: 1rem;
+    box-shadow: #004b5a52 0rem 0rem 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    margin: 0rem 0.5rem 1rem 0.5rem
+}
+
+.card p {
+    margin: 0rem;
+}
+
+.slider-container {
+    height: fit-content;
+    background-color: white;
+}
+
+.chart-container {
+    background-color: white;
+    box-shadow: #004b5a52 0rem 0rem 0.5rem;
+    align-items: center;
+    padding: 1rem;
+    z-index: 1;
+    border-radius: 0.5rem;
+    width: 90%
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.bold {
+    color:#004b5a
+}
+
+.description {
+    margin-bottom: 2rem;
+}
+
+b, i , h2{
+    color:#004b5a;
+    
+}
+
+.button-container button {
+    margin: 1rem 0.5rem 0rem 0.5rem;
+    background-color: white;
+    border: #004b5a solid 2px;
+    border-radius: 0.25rem;
+    color: #004b5a;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    z-index: 10;
+
+}
+
+.button-container button:hover {
+    background-color: #004b5a; /* Green */
+    color: white;
+    z-index: 10;
+    transform: scale(1.05);
+}
+
+.button:hover b {
+    color: white;
+}
+
+.center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.slider-container p {
+    margin-bottom: 0rem;
+}
+
+mat-slider {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    background-color: #004b5a;
+}
+
+.footer p {
+    margin: 1rem;
+    color: white;
+}
+
+.mat-slider-horizontal {
+    height: 14px;
+    margin-bottom: 3rem;
+}
+
+.mat-slider.mat-primary .mat-slider-track-fill {
+    background-color: #004b5a;
+}
+
+
+@media only screen and (max-width: 999px) {
+    .website-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .slider-container {
+        margin-bottom: 5rem;
+    }
+
+    .content-wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        padding: 1rem 0rem;
+        background-color: #004b5a;
+        margin-bottom: 2rem;
+        max-width: 100%;
+    }
+
+    .chart-container {
+        box-shadow: white 0rem 0rem 0rem;
+    }
+
+    .header .logo {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 2rem;
+        width: 20%;
+    }
+    
+    .header .title {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .header .space {
+        display: flex;
+        justify-content: flex-end;
+        width: 0%;
+    }
+
+    img {
+        float: left;
+        height: 3rem;
+    }
+
+    .center {
+        margin-bottom: 3rem;
+    }
+
+    canvas {
+        height: 400px;
+        width: 300px;
+    }
+
+    .slider-container{
+        width: auto;
+        margin: 0rem 1rem;
+    } 
+
+    .chart-wrapper {
+        display: flex;
+        flex-direction: column;
+    
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .website-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+   
+    mat-slider {
+        width: 100%;
+        margin-bottom: 1rem;
+        margin-right: 2rem
+    }
+
+    .slider-container{
+        margin-right: 1rem;
+    } 
+
+    .content-wrapper {
+        margin: 3rem 9rem;
+        display: flex;
+        flex-direction: column;
+        height: 68.8%;
+    }
+
+    h1 {
+        font-size: 27px;
+        min-width: 25rem;
+    }
+
+    .chart-container {
+        width: 100%;
+    }
+
+    .chart-wrapper {
+        display: flex;
+        width: 70%;
+        flex-direction: column;
+    
+    }
+
+    canvas {
+        height: 400px;
+        width: auto;
+    }
+
+}

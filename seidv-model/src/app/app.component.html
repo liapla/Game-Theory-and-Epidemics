@@ -1,0 +1,17 @@
+<div class="website-wrapper">
+  <div class="header">
+    <div class="logo" (click)="goHome()">
+      <img src="../assets/logo.svg" alt="Logo der Uni Lübeck">
+    </div>
+    <div class="title">
+      <h1>The SEIDV Epidemic Model</h1>
+    </div>
+  </div>
+  <div class="content-wrapper">
+    <router-outlet></router-outlet>
+  </div> 
+  <div class="footer">
+    <a [routerLink]="['/impressum']" routerLinkActive="active">Impressum</a>
+    <a routerLink='/datenschutz'>Datenschutz</a>
+  </div>
+</div>

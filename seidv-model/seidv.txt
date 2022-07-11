@@ -1,0 +1,67 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'seidv-model';
+
+  public r0: any = 5;
+  public sigma: any = 1/11
+  public gamma: any = 1/3
+  public t_res: any = 14
+  public nu: any = 0.10
+  public d_v: any = Math.pow(10,-6)
+  public d_s: any = 0.3
+  public r: any = 0.01
+  public alpha: any = 5000/290000000
+  public beta: any = this.gamma*this.r0
+  public n: any = 1
+
+  public seidv(t: any, state: any) {
+    var D, E, I, S, V, dDdt, dEdt, dIdt, dSdt, dVdt;
+    [S, E, I, D, V] = state;
+    dSdt = -this.beta * S * I - this.f(S, t);
+    dEdt = this.beta * S * I - E * this.sigma;
+    dIdt = this.sigma * E - this.gamma * I;
+    dDdt = this.gamma * I;
+    dVdt = this.f(S, t);
+    return [dSdt, dEdt, dIdt, dDdt, dVdt];
+  }
+   
+  public f(S: any, t: any) {
+    if (t < this.t_res) {
+      return 0;
+    } else {
+      if (S > 0) {
+        return this.nu;
+      } else {
+        return 0;
+      }
+    }
+  }
+  
+  // public epidemiology_model(p0: any) {
+  //   var D0, E0, I0, S0, V0, init, phi_s, solution, time_span;
+  //   S0 = 1 - p0 - (1 - p0) * this.alpha / this.n;
+  //   E0 = (1 - p0) * this.alpha / this.n;
+  //   I0 = 0;
+  //   D0 = 0;
+  //   V0 = p0;
+  //   init = [S0, E0, I0, D0, V0];
+  //   time_span = np.linspace(0.001, 99.99, 100);
+  //   solution = solve_ivp(SEIDV, {
+  //     "t_span": [0, 100],
+  //     "y0": init,
+  //     "t_val": time_span
+  //   });
+  //   phi_s = solution.y[3].slice(-1)[0] / (1 - solution.y[4][0]);
+  //   return [solution.y, solution.t, phi_s];
+  // }
+  
+}
+
+
+
